@@ -1,10 +1,9 @@
-import LandingMessage from "./LandingMessage";
+import List from "./List";
 
 function App() {
   return (
     <>
-      <LandingMessage isLoggedIn={true} userName="Tommy" />
-      <LandingMessage isLoggedIn={true} />
+      <List></List>
     </>
   );
 }
