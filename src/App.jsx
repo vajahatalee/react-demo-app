@@ -1,20 +1,10 @@
-import User from "./User";
+import LandingMessage from "./LandingMessage";
 
 function App() {
   return (
     <>
-      <div>
-        <User name="Ali" age={33} isStudent={false} />
-      </div>
-      <div>
-        <User name="Zaid" age={7} isStudent={true} />
-      </div>
-      <div>
-        <User name="Ismael" age={3} isStudent={true} />
-      </div>
-      <div>
-        <User />
-      </div>
+      <LandingMessage isLoggedIn={true} userName="Tommy" />
+      <LandingMessage isLoggedIn={true} />
     </>
   );
 }
