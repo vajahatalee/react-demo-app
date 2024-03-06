@@ -8,3 +8,13 @@
 .student p{
   margin: 0;
   }
+
+.list-heading{
+  font-size: large;
+  color: brown;
+}
+
+.list-items{
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+}

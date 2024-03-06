@@ -1,32 +1,30 @@
-function List() {
-  const fruits = [
-    { id: 1, name: "apple", calories: 95 },
-    { id: 4, name: "pear", calories: 25 },
-    { id: 2, name: "banana", calories: 100 },
-    { id: 3, name: "coconut", calories: 145 },
-  ];
+import PropTypes from "prop-types";
+function List(props) {
+  const listOfItems = props.items;
+  const category = props.title;
 
-  //ALPHABETICAL SORT
-  //fruits.sort((a, b) => a.name.localeCompare(b.name));
-  //REVERSE ALPHABETICAL SORT
-  //fruits.sort((a, b) => b.name.localeCompare(a.name));
-
-  //NUMERIC SORT
-  //fruits.sort((a, b) => a.calories - b.calories);
-  //NUMERIC SORT REVERSE
-  //fruits.sort((a, b) => b.calories - a.calories);
-
-  //FILTER ONLY HIGH CAL FRUITS
-  //const highCalFruits = fruits.filter((fruit) => fruit.calories >= 100);
-  //FILTER ONLY LOW CAL FRUITS
-  //const lowCalFruits = fruits.filter((fruit) => fruit.calories < 100);
-
-  const listOfFruits = fruits.map((fruit) => (
-    <li key={fruit.id}>
-      {fruit.name} &nbsp; <b>{fruit.calories}</b>
+  const itemList = listOfItems.map((item) => (
+    <li key={item.id}>
+      {item.name} &nbsp; <b>{item.calories}</b>
     </li>
   ));
 
-  return <ol>{listOfFruits}</ol>;
+  return (
+    <>
+      <h1 className="list-heading">{category}</h1>
+      <ol className="list-items">{itemList}</ol>
+    </>
+  );
 }
+List.defaultProps = { title: "Category", items: [] };
+List.propTypes = {
+  title: PropTypes.string,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      calories: PropTypes.number,
+    })
+  ),
+};
 export default List;
